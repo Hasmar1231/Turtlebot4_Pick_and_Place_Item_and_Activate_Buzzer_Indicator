@@ -1,51 +1,62 @@
 This project as Mid-semester exam in course RE 702 Localization and Mapping using Turtlebot4 Robot.
-Turtlebot4 — Pick & Place Item with Buzzer Indicator
-Mid-Semester Exam – RE702 Localization and Mapping
-Case Study: Autonomous Delivery Robot (From Room 203 → Lobby BRAIL)
+# Turtlebot4 — Pick & Place Item with Buzzer Indicator  
+### Mid-Semester Exam – RE702 Localization and Mapping  
+**Case Study:** Autonomous Delivery Robot (From Room 203 → Lobby BRAIL)
 
-Project Overview
-This project involves programming a Turtlebot4 robot to autonomously go to pick up point at Room 203 and going back to Lobby BRAIL.
+---
+
+## Project Overview
+This project involves programming a Turtlebot4 robot to autonomously go to pick up point at **Room 203** and going back to **Lobby BRAIL**.  
 The system uses:
 
-ROS2 Navigation (Nav2)
-SLAM Toolbox (Mapping)
-AMCL (Localization)
-Autonomous multi-waypoint navigation
-Buzzer/Speaker as notification
-Buzzer Logic
-1 beep → Robot reaches Pick Point (Room 203)
-2 beeps → Robot reaches Place Point (Lobby BRAIL)
-1. Connect to Turtlebot4
-Ensure your laptop is connected to the Turtlebot4 using a LAN cable.
+- **ROS2 Navigation (Nav2)**
+- **SLAM Toolbox (Mapping)**
+- **AMCL (Localization)**
+- **Autonomous multi-waypoint navigation**
+- **Buzzer/Speaker as notification**
+
+### Buzzer Logic
+- **1 beep** → Robot reaches **Pick Point (Room 203)**  
+- **2 beeps** → Robot reaches **Place Point (Lobby BRAIL)**  
+
+---
+
+## 1. Connect to Turtlebot4
+Ensure your laptop is connected to the Turtlebot4 using a **LAN cable**.
 
 SSH into the robot:
+- ssh ubuntu@192.168.185.3
 
-ssh ubuntu@192.168.185.3
-2. Build Workspace & Install Dependencies
+## 2. Build Workspace & Install Dependencies
 2.1 Create ws
+- mkdir -p kelompok1/src
 
-mkdir -p kelompok1/src
-
-cd kelompok1
+- cd kelompok1
 
 2.2 Clone repo
+- git clone https://github.com/Rusaven/turtlebot4_pickAndPlace.git
 
-git clone https://github.com/Rusaven/turtlebot4_pickAndPlace.git
 2.3 Install Dependencies
+- cd ../
+- rosdep install --from-paths src --ignore-src -r -y
 
-cd ../
-rosdep install --from-paths src --ignore-src -r -y
 2.4 Build ws
+- colcon build
 
-colcon build
-3. Load map + AMCL
-ros2 launch turtlebot4_navigation localization.launch.py map:=Mapping_Kelompok1APagiUTS.yaml params:=localization.yaml
-4 Launch nav
-ros2 launch turtlebot4_pick_place uts_nav.launch.py
-5. Open RViz
-ros2 launch turtlebot4_viz view_navigation.launch.py
-6. Run pick and place program
-cd kelompok1
-source install/setup.bash
-ros2 run uts uts
-______  
+## 3. Load map + AMCL
+- ros2 launch turtlebot4_navigation localization.launch.py map:=Mapping_Kelompok1APagiUTS.yaml params:=localization.yaml
+
+## 4 Launch nav
+- ros2 launch turtlebot4_pick_place uts_nav.launch.py
+
+## 5. Open RViz
+- ros2 launch turtlebot4_viz view_navigation.launch.py
+
+## 6. Run pick and place program
+- cd kelompok1
+- source install/setup.bash
+- ros2 run uts uts
+
+
+
+---
