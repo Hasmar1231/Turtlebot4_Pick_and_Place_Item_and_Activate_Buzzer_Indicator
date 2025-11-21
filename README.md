@@ -34,7 +34,7 @@ SSH into the robot:
 - cd kelompok1
 
 2.2 Clone repo
-- git clone https://github.com/Rusaven/turtlebot4_pickAndPlace.git
+- git clone https://github.com/Hasmar1231/Turtlebot4_Pick_and_Place_Item_and_Activate_Buzzer_Indicator.git
 
 2.3 Install Dependencies
 - cd ../
